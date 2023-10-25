@@ -48,7 +48,7 @@ class AuthController extends Controller
                 'type' => 'bearer',
                 'expires_in' => auth()->guard('api')->factory()->getTTL() * 60
             ]
-        ]);
+        ],200);
     }
 
     public function register(Request $request)
@@ -102,7 +102,7 @@ class AuthController extends Controller
         if($token){
             return response()->json([
                 'user' => auth()->guard('api')->user(),
-                'authorisation' => [
+                'authorization' => [
                     'token' => $token,
                     'type' => 'bearer',
                     'expires_in' => auth()->factory()->getTTL() * 60
